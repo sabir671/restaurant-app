@@ -1,40 +1,37 @@
 @extends('backend.layouts.app')
-
-@section('title', '| Menu')
+@section('title', '| Categories')
 
 @section('breadcrumb')
-    <div class="page-header">
-        <h1 class="page-title">Menu List</h1>
-        <div>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Menu</li>
-            </ol>
-        </div>
+<div class="page-header">
+    <h1 class="page-title">Categories List</h1>
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Categories</li>
+        </ol>
     </div>
+</div>
 @endsection
-
 @section('content')
     <div class="card">
         <div class="card-header justify-content-between">
-            <h3 class="card-title font-weight-bold">Menu</h3>
-            @can('add_menu')
+            <h3 class="card-title font-weight-bold">Categories</h3>
+            {{-- @can('add_user') --}}
                 <button type="button" class="btn dark-icon btn-primary" data-act="ajax-modal" data-method="get"
-                    data-action-url="{{ route('menus.create') }}" data-title="Add New Menu">
-                    <i class="ri-add-fill"></i> Add Menu
+                    data-action-url="{{ route('categories.create') }}" data-title="Add New Categories">
+                    <i class="ri-add-fill"></i> Add Category
                 </button>
-            @endcan
+            {{-- @endcan --}}
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="menus_datatable" class="table table-bordered text-nowrap key-buttons border-bottom w-100">
+                <table id="categories_datatable" class="table table-bordered text-nowrap key-buttons border-bottom w-100">
                     <thead>
                         <tr>
                             <th class="border-bottom-0">#</th>
                             <th class="border-bottom-0">Name</th>
-                            <th class="border-bottom-0">image</th>
                             <th class="border-bottom-0">description</th>
-                            <th class="border-bottom-0">price</th>
+                            <th class="border-bottom-0">image</th>
                             <th class="border-bottom-0">Status</th>
                             <th class="border-bottom-0">Actions</th>
                         </tr>
@@ -47,19 +44,18 @@
         </div>
     </div>
 @endsection
-
 @push('scripts')
     <script>
         $(function() {
-            $('#menus_datatable').DataTable({
-                ajax: '{{ route('menus-datatable') }}',
+            $('#categories_datatable').DataTable({
+                ajax: '{{ route('categories-datatable') }}',
                 processing: true,
                 serverSide: true,
                 scrollX: false,
                 autoWidth: true,
                 columnDefs: [{
                         width: 1,
-                        targets: 6
+                        targets: 5
                     },
                     {
                         width: '5%',
@@ -75,17 +71,14 @@
                         name: 'name'
                     },
                     {
-                        data: 'image',
-                        name: 'image'
-                    },
-                    {
                         data: 'description',
                         name: 'description'
                     },
                     {
-                        data: 'price',
-                        name: 'price'
+                        data: 'image',
+                        name: 'image'
                     },
+
                     {
                         data: 'status',
                         name: 'status'

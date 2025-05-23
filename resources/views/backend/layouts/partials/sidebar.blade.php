@@ -30,6 +30,7 @@
                      <ul class="slide-menu">
                          <li class="side-menu-label1"><a href="javascript:void(0)">Apps</a></li>
                          <li><a href="{{ route('menus.index')}}" class="slide-item">Menu </a></li>
+                         <li><a href="{{ route('categories.index')}}" class="slide-item">Categories </a></li>
                       </ul>
                  </li>
                  <li class="slide">
