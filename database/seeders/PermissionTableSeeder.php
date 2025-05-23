@@ -42,6 +42,12 @@ class PermissionTableSeeder extends Seeder
             ['group' => 'categories', 'name' => 'add_category', 'title' => 'Add Category', 'guard_name' => 'web'],
             ['group' => 'categories', 'name' => 'edit_category', 'title' => 'Edit Category', 'guard_name' => 'web'],
             ['group' => 'categories', 'name' => 'delete_category', 'title' => 'Delete Category', 'guard_name' => 'web'],
+             // table
+            ['group' => 'tables', 'name' => 'view_tables', 'title' => 'View tables', 'guard_name' => 'web'],
+            ['group' => 'tables', 'name' => 'add_table', 'title' => 'Add Table', 'guard_name' => 'web'],
+            ['group' => 'tables', 'name' => 'edit_table', 'title' => 'Edit Table', 'guard_name' => 'web'],
+            ['group' => 'tables', 'name' => 'delete_table', 'title' => 'Delete Table', 'guard_name' => 'web'],
+
 
         ];
         Permission::insert($permissions);

@@ -65,9 +65,10 @@ function getFiles($file_name)
     return empty($file) ? '' : $file;
 }
 
-function saveAnyFile($file, $directory, $fileName) {
+function saveAnyFile($file, $directory, $fileName)
+{
     $file_type = $file->getMimeType();
-    if(str_starts_with($file_type, 'image/')){
+    if (str_starts_with($file_type, 'image/')) {
         $path = saveResizeImage($file, $directory);
     } else {
         $path = saveDocument($file, $directory, $fileName);
@@ -88,9 +89,10 @@ function statusClasses($status)
         case 'inactive':
         case 'rejected':
         case 'cancelled':
+        case 'pending':
             $class = 'danger';
             break;
-        case 'pending':
+        case 'available':
             $class = 'warning';
             break;
     }
@@ -124,11 +126,12 @@ function isValue($value)
     }
 }
 
-function formatString($key, $reverse = false) {
+function formatString($key, $reverse = false)
+{
     if ($reverse) {
-        return str_replace([' ', "'"],'_', strtolower($key));
+        return str_replace([' ', "'"], '_', strtolower($key));
     } else {
-        return str_replace(['_','-'],' ', strtolower($key));
+        return str_replace(['_', '-'], ' ', strtolower($key));
     }
 }
 

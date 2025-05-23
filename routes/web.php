@@ -18,5 +18,8 @@ Route::middleware(['auth'])->group(function () {
     // categories routes
     Route::resource('categories', Backend\CategoryController::class);
     Route::get('categories-dt', [Backend\CategoryController::class,'dataTable'])->name('categories-datatable');
+    Route::resource('tables', Backend\TableController::class);
+    Route::get('tables-dt', [Backend\TableController::class,'dataTable'])->name('tables-datatable');
+
 
 });

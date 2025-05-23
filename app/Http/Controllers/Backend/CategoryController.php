@@ -189,7 +189,7 @@ class CategoryController extends Controller
             ->addColumn('status', function ($record) {
                 return '<span class="badge bg-' . statusClasses($record->status) . '">' . ucfirst($record->status) . '</span>';
             })
-            ->rawColumns(['actions', 'price', 'name', 'status', 'description', 'image'])
+            ->rawColumns(['actions', 'name', 'status', 'description', 'image'])
             ->addIndexColumn()->make(true);
     }
 }
